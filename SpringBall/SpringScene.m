@@ -433,7 +433,7 @@ static void eachShape(void* ptr, void* unused) {
         
 		CCSprite* bg = [CCSprite spriteWithFile:fon];
 		bg.position = ccp(240, 160);
-		[self addChild:bg z:0];		
+		[self addChild:bg z:-2];		
 
 		CCSprite* bgg = [CCSprite spriteWithFile:fon1];
 		bgg.position = ccp(240, 18);

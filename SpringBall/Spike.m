@@ -24,7 +24,7 @@
 		
 		sprite = [CCSprite spriteWithFile:@"spikes.png"];
 		sprite.position = ccp(-500, -500);
-		[lr addChild:sprite];	
+		[lr addChild:sprite z:-1];	
 		
 /*		cpVect verts[] = {
 			cpv(-34.5f, -9.5f),
