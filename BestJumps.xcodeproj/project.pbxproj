@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		36B77156152EB6D00066EB52 /* level31.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36B77155152EB6D00066EB52 /* level31.plist */; };
 		8C053CD313BD9FEA00D4520F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C053CD213BD9FEA00D4520F /* QuartzCore.framework */; };
 		8C053CD513BD9FEA00D4520F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C053CD413BD9FEA00D4520F /* OpenGLES.framework */; };
 		8C053CD713BD9FEA00D4520F /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C053CD613BD9FEA00D4520F /* OpenAL.framework */; };
@@ -733,7 +732,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		36B77155152EB6D00066EB52 /* level31.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level31.plist; sourceTree = "<group>"; };
 		8C053CCE13BD9FEA00D4520F /* BestJumps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BestJumps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C053CD213BD9FEA00D4520F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8C053CD413BD9FEA00D4520F /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1659,7 +1657,6 @@
 			children = (
 				DD6D785313F5B1C1000FF725 /* Default@2x.png */,
 				DD6D785013F5AEBC000FF725 /* Default.png */,
-				36B77155152EB6D00066EB52 /* level31.plist */,
 				8C053CE213BD9FEA00D4520F /* SpringBall */,
 				8C053CD113BD9FEA00D4520F /* Frameworks */,
 				8C053CCF13BD9FEA00D4520F /* Products */,
@@ -3814,7 +3811,6 @@
 				DD54843514C27D2E00615BA6 /* fon_spring-hd-.jpg in Resources */,
 				DD54843714C27D4800615BA6 /* fon_summer-hd.jpg in Resources */,
 				DD54843914C27D7300615BA6 /* fon_winter-hd.jpg in Resources */,
-				36B77156152EB6D00066EB52 /* level31.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

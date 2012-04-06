@@ -1126,7 +1126,7 @@ static void eachShape(void* ptr, void* unused) {
 				[w setPosition:ccp(240,160)];
 				[[Common instance] setStart:w at:i-1];
 				ls->istart[i-1].pos = ccp(240,160);
-				ls->istart[i-1].balls = 3;
+				ls->istart[i-1].balls = 5;
 				obj_hanged = w;
 				decrement_counter = &ls->start_count;
 				break;
