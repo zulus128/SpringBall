@@ -164,11 +164,26 @@
 
 - (void) windon:(Wind*)w {
 	
+    
 //	if(iswind)
 //		return;
 //	iswind = YES;
-	if(status == BS_ONWIND)
+    if(status == BS_DIED)
+        return;
+    
+	if(status == BS_ONWIND) {
+
+        wind_cnt++;
+        if(wind_cnt > 1500) {
+            
+            wind_cnt = 0;
+            [self windoff];
+            [self die];
+        }
+//        NSLog(@"windon");
 		return;
+
+    }
 	status = BS_ONWIND;
 	cpBodyResetForces(body);
 //	cpBodyApplyForce(body, cpv(0, [w getWindPower]/*[Common instance].wind*/), cpvzero);
@@ -178,6 +193,9 @@
 }
 
 - (void) windoff {
+
+    if(status == BS_DIED)
+        return;
 	
 	cpBodyResetForces(body);
 	cpBodyApplyForce(body, /*cpv(0, -[Common instance].gravity)*/[[Common instance] getGravity], cpvzero);

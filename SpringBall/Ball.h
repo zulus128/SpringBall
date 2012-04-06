@@ -25,6 +25,8 @@ enum BallStatus {BS_ONSTART, BS_ONFINISH, BS_FREE, BS_DIED, BS_ONWIND, BS_HYPER}
 //	bool iswind;
 	CCSprite* shadow[MAX_SHADOW];
 	int shd_cnt;
+    
+    int wind_cnt;
 }
 
 @property (readonly) int status;
