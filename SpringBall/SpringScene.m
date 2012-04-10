@@ -368,6 +368,8 @@ static void eachShape(void* ptr, void* unused) {
 
 @implementation SpringScene
 
+@synthesize firstdate;
+
 +(id) scene {
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
@@ -448,6 +450,11 @@ static void eachShape(void* ptr, void* unused) {
 		seasonname.position = ccp(420, 285);
         seasonname.visible = NO;
 		[self addChild:seasonname z:50];
+
+        timelabel = [CCLabelTTF labelWithString:@"aaaaaaa0:00" fontName:@"ARLRDBD_0.TTF" fontSize:18];
+		timelabel.position = ccp(420, 185);
+//        timelabel.visible = NO;
+		[self addChild:timelabel z:5000];
 
 		direction_sprite = [CCSprite spriteWithFile:@"direction.png"];
 		[self addChild:direction_sprite z:5];
@@ -746,6 +753,10 @@ static void eachShape(void* ptr, void* unused) {
 	return self;
 }
 
+//- (void) checkIfComplete {
+//    
+//}
+
 - (void) pause:(id) sender {
     
     NSLog(@"Pause");
@@ -757,6 +768,34 @@ static void eachShape(void* ptr, void* unused) {
     item5.visible = YES;
     levelname.visible = YES;
     seasonname.visible = YES;
+    
+    NSDate* seconddate = [NSDate date];
+    double ff = [seconddate timeIntervalSinceDate:self.firstdate];
+    NSLog(@"Pause: Time elapsed: %f seconds", ff);
+    timecnt += ff;
+    
+    [[CCDirector sharedDirector] pause];
+    
+}
+
+- (void) complete {
+    
+    NSLog(@"Complete");
+    bgp.visible = YES;
+    item1.visible = NO;
+    item2.visible = YES;
+    item3.visible = YES;
+    item4.visible = YES;
+    item5.visible = YES;
+    levelname.visible = YES;
+    seasonname.visible = YES;
+    
+    NSDate* seconddate = [NSDate date];
+    double ff = [seconddate timeIntervalSinceDate:self.firstdate];
+    NSLog(@"Complete: Time elapsed: %f seconds", ff);
+    timecnt += ff;
+
+    timelabel.visible = YES;
     
     [[CCDirector sharedDirector] pause];
     
@@ -773,6 +812,8 @@ static void eachShape(void* ptr, void* unused) {
     item5.visible = NO;
     levelname.visible = NO;
     seasonname.visible = NO;
+    
+    self.firstdate = [NSDate date];
     
     [[CCDirector sharedDirector] resume];
  
@@ -826,10 +867,16 @@ static void eachShape(void* ptr, void* unused) {
     NSLog(@"Started level %d", l);
 
     
+    self.firstdate = [NSDate date];
+    timecnt = 0;
+    
 	level = l;
 	selected = -1;	
 	[Common instance].editor = NO;
-	[Common instance].ballsonfinish = 0;
+	
+    [Common instance].ballsonfinish = 0;
+	[Common instance].ballsdied = 0;
+    
 	[[Common instance] resetGravityAngle];
 	[Common instance].gravityexists = YES;
 //	menu.visible = NO;
@@ -1737,6 +1784,8 @@ static void eachShape(void* ptr, void* unused) {
 	
     [self deleteObjects];
 
+    self.firstdate = nil;
+    
 	[super dealloc];
 	
 //	[startmassbody release];
@@ -1813,8 +1862,8 @@ static void eachShape(void* ptr, void* unused) {
 		shadow_count = 0;
 	}
 	
-//	if([Common instance].ballsonfinish > 0)
-//		menu.visible = YES;
+	if(([Common instance].ballsonfinish + [Common instance].ballsdied) >= ls->ballsnum)
+		[self complete];
 	
     sawcnt ++;
     if(sawcnt > 300) {

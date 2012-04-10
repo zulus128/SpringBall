@@ -223,6 +223,8 @@
 	if(status == BS_DIED)
 		return;
 	status = BS_DIED;
+    [Common instance].ballsdied++;
+
 	[sprite stopAllActions];
 	//[sprite initWithFile:@"2.png"];
 //	if(status == BS_DIED)

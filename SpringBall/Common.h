@@ -168,6 +168,7 @@ extern LevelStruct* ls;
 	int tailcount;
 	float bottomForce;	
 	int ballsonfinish;
+	int ballsdied;
 	int gravityAngle;
 	bool gravityexists;
 	int setlevel;
@@ -206,6 +207,7 @@ extern LevelStruct* ls;
 @property (readwrite) float tailfadeout;
 @property (readwrite) float bottomForce;
 @property (readwrite) int ballsonfinish;
+@property (readwrite) int ballsdied;
 @property (readwrite) bool gravityexists;
 @property (readwrite) int setlevel;
 

@@ -732,6 +732,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36267FEE153426940030A650 /* ARLRDBD_0.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = ARLRDBD_0.TTF; sourceTree = "<group>"; };
 		8C053CCE13BD9FEA00D4520F /* BestJumps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BestJumps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C053CD213BD9FEA00D4520F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8C053CD413BD9FEA00D4520F /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1752,6 +1753,7 @@
 		8C053CE313BD9FEA00D4520F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				36267FEE153426940030A650 /* ARLRDBD_0.TTF */,
 				8C43E19213FE394A001E59F5 /* level_music.mp3 */,
 				DDACB8DA144AA4D800869937 /* best_lumps_ball-jump.mp3 */,
 				8C053EEB13BDA4F000D4520F /* platform_.png */,

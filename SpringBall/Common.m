@@ -42,6 +42,8 @@ LevelStruct* ls = nil;
 @synthesize setlevel;
 
 @synthesize ballsonfinish;
+@synthesize ballsdied;
+
 //@synthesize gravityAngle;
 
 @synthesize season;

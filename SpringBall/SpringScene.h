@@ -52,7 +52,11 @@ enum EditorObjects { EO_EASYWIND/*must be 1st*/, EO_STRONGWIND, EO_START, EO_FIN
     CCSprite* levelname;
     CCSprite* seasonname;
 
+    CCLabelTTF *timelabel;
+    
     int sawcnt;
+    
+    double timecnt;
 }
 
 +(id) scene;
@@ -62,10 +66,16 @@ enum EditorObjects { EO_EASYWIND/*must be 1st*/, EO_STRONGWIND, EO_START, EO_FIN
 
 - (void) nextlevelCallback:(id) sender;
 - (void) pause:(id) sender;
+
+- (void) complete;
+//- (void) checkIfComplete;
+
 - (void) resume:(id) sender;
 - (void) restart:(id) sender;
 - (void) menu:(id) sender;
 - (void) sound:(id) sender;
 -(void) deleteObjects;
+
+@property (nonatomic, retain) NSDate* firstdate;
 
 @end
