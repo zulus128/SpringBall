@@ -208,6 +208,7 @@ extern LevelStruct* ls;
 @property (readwrite) float bottomForce;
 @property (readwrite) int ballsonfinish;
 @property (readwrite) int ballsdied;
+@property (readwrite) int stars;
 @property (readwrite) bool gravityexists;
 @property (readwrite) int setlevel;
 

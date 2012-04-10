@@ -451,10 +451,16 @@ static void eachShape(void* ptr, void* unused) {
         seasonname.visible = NO;
 		[self addChild:seasonname z:50];
 
-        timelabel = [CCLabelTTF labelWithString:@"aaaaaaa0:00" fontName:@"ARLRDBD_0.TTF" fontSize:18];
-		timelabel.position = ccp(420, 185);
-//        timelabel.visible = NO;
-		[self addChild:timelabel z:5000];
+        timelabel = [CCLabelTTF labelWithString:@"00:00" fontName:@"ARLRDBD_0.TTF" fontSize:18];
+		timelabel.position = ccp(420, 150);
+        timelabel.visible = NO;
+		[self addChild:timelabel z:50];
+
+        scorelabel = [CCLabelTTF labelWithString:@"0"  dimensions:CGSizeMake(200, 60) alignment:UITextAlignmentRight fontName:@"ARLRDBD_0.TTF" fontSize:38];
+//        [CCLabelTTF labelWithString: @"Testing 1 2 3" dimensions:CGSizeMake(150, 60) alignment:UITextAlignmentLeft fontName: @"Impact" fontSize: 18];
+		scorelabel.position = ccp(350, 225);
+        scorelabel.visible = NO;
+		[self addChild:scorelabel z:50];
 
 		direction_sprite = [CCSprite spriteWithFile:@"direction.png"];
 		[self addChild:direction_sprite z:5];
@@ -796,11 +802,103 @@ static void eachShape(void* ptr, void* unused) {
     timecnt += ff;
 
     timelabel.visible = YES;
+    scorelabel.visible = YES;
     
-    [[CCDirector sharedDirector] pause];
+
+    ctimec = 400;//timecnt;
+    [Common instance].stars = 5;
+    cscorec = 100000;//20000 * [Common instance].ballsonfinish;
+
+    [self unschedule: @selector(step:)];
+//    [self unscheduleAllSelectors];
+  
+    if(cscorec <= 0)
+        return;
+
+    starscnt = [Common instance].stars;
+    scnt = 0;
+    dcnt = 0;
+//    [self schedule:@selector(sstep:) interval:0.01f];
+    [self schedule:@selector(sstep1:) interval:0.3f];
+
+//    for (int i = timecnt; i > 0; i--) {
+//        
+//    }
+    
+//    [[CCDirector sharedDirector] pause];
     
 }
 
+- (void) sstep1: (ccTime) dt {
+
+    if([Common instance].stars <= 0) {
+
+        [self unschedule: @selector(sstep1:)];
+        [self schedule:@selector(sstep:) interval:0.01f];
+        return;
+    }
+    
+    cscorec += 10000;
+    [scorelabel setString:[NSString stringWithFormat:@"%d", cscorec]];
+
+    [Common instance].stars--;
+    
+    int x = 450;
+    CCSprite* sprite = [CCSprite spriteWithFile:@"star.png"];
+    sprite.position = ccp(x - scnt * 50, 185);
+    sprite.tag = (500 + scnt);
+    [self addChild:sprite z:50];	
+    scnt++;
+}
+
+- (void) sstep2: (ccTime) dt {
+
+    if([Common instance].ballsdied <= 0) {
+        
+        [self unschedule: @selector(sstep2:)];
+        return;
+    }
+    
+    cscorec -= 10000;
+    [scorelabel setString:[NSString stringWithFormat:@"%d", cscorec]];
+    
+    [Common instance].ballsdied--;
+    
+    int x = 450;
+    CCSprite* sprite = [CCSprite spriteWithFile:@"ball_blue_smert_5.png"];
+    sprite.position = ccp(x - dcnt * 50, 115);
+    sprite.tag = (600 + dcnt);
+    [self addChild:sprite z:50];	
+    dcnt++;
+
+}
+
+- (void) sstep: (ccTime) dt {
+
+    ctimec--;
+
+    int a = ctimec/60;
+    int b = ctimec - a*60;
+    NSString* s = [NSString stringWithFormat:@"%02d:%02d", a, b];
+//    NSLog(@"c = %@",s);
+    [timelabel setString:s];
+    
+    cscorec -= 100;
+    if (cscorec < 0)
+        cscorec = 0;
+
+    [scorelabel setString:[NSString stringWithFormat:@"%d", cscorec]];
+
+    
+    if (ctimec <= 0) {
+    
+        [self unschedule:@selector(sstep:)];
+        [self schedule:@selector(sstep2:) interval:0.3f];
+
+    }
+
+}
+         
 - (void) resume:(id) sender {
 
     NSLog(@"Resume");
@@ -876,6 +974,7 @@ static void eachShape(void* ptr, void* unused) {
 	
     [Common instance].ballsonfinish = 0;
 	[Common instance].ballsdied = 0;
+	[Common instance].stars = 0;
     
 	[[Common instance] resetGravityAngle];
 	[Common instance].gravityexists = YES;
@@ -1841,7 +1940,7 @@ static void eachShape(void* ptr, void* unused) {
 
 -(void) step: (ccTime) delta {
 
-	//NSLog(@"%f",delta);
+//	NSLog(@"%f",delta);
 	
 	int steps = 2;
 	CGFloat dt = delta/(CGFloat)steps;

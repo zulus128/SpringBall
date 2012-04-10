@@ -50,5 +50,9 @@
 	<array>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>LucidaBrightDemiBold.ttf</string>
+	</array>
 </dict>
 </plist>

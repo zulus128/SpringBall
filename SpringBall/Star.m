@@ -7,7 +7,7 @@
 //
 
 #import "Star.h"
-
+#import "Common.h"
 
 @implementation Star
 
@@ -63,6 +63,8 @@
 	active = NO;
 	[sprite stopAllActions];
 	[sprite runAction:goout];
+    
+    [Common instance].stars++;
 }
 
 //- (void) actCallback {

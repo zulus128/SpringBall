@@ -53,16 +53,26 @@ enum EditorObjects { EO_EASYWIND/*must be 1st*/, EO_STRONGWIND, EO_START, EO_FIN
     CCSprite* seasonname;
 
     CCLabelTTF *timelabel;
+    CCLabelTTF *scorelabel;
     
     int sawcnt;
     
     double timecnt;
+    int ctimec;
+    int cscorec;
+    int starscnt;
+    int scnt;
+    int dcnt;
+
 }
 
 +(id) scene;
 
 -(void) startLevel: (int) l;
 -(void) step: (ccTime) dt;
+- (void) sstep: (ccTime) dt;
+- (void) sstep1: (ccTime) dt;
+- (void) sstep2: (ccTime) dt;
 
 - (void) nextlevelCallback:(id) sender;
 - (void) pause:(id) sender;

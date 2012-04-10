@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36036AFC153433DF00426D2E /* ARLRDBD_0.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 36267FEE153426940030A650 /* ARLRDBD_0.TTF */; };
+		3656AE83153458D80053DE3A /* next_score_activ.png in Resources */ = {isa = PBXBuildFile; fileRef = 3656AE80153458D70053DE3A /* next_score_activ.png */; };
+		3656AE84153458D80053DE3A /* next_score.png in Resources */ = {isa = PBXBuildFile; fileRef = 3656AE81153458D70053DE3A /* next_score.png */; };
+		3656AE85153458D80053DE3A /* time_score.png in Resources */ = {isa = PBXBuildFile; fileRef = 3656AE82153458D80053DE3A /* time_score.png */; };
+		3656AE8A153459310053DE3A /* next_score_activ-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 3656AE87153459310053DE3A /* next_score_activ-hd.png */; };
+		3656AE8B153459310053DE3A /* next_score-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 3656AE88153459310053DE3A /* next_score-hd.png */; };
+		3656AE8C153459310053DE3A /* time_score-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 3656AE89153459310053DE3A /* time_score-hd.png */; };
 		8C053CD313BD9FEA00D4520F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C053CD213BD9FEA00D4520F /* QuartzCore.framework */; };
 		8C053CD513BD9FEA00D4520F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C053CD413BD9FEA00D4520F /* OpenGLES.framework */; };
 		8C053CD713BD9FEA00D4520F /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C053CD613BD9FEA00D4520F /* OpenAL.framework */; };
@@ -733,6 +740,12 @@
 
 /* Begin PBXFileReference section */
 		36267FEE153426940030A650 /* ARLRDBD_0.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = ARLRDBD_0.TTF; sourceTree = "<group>"; };
+		3656AE80153458D70053DE3A /* next_score_activ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next_score_activ.png; sourceTree = "<group>"; };
+		3656AE81153458D70053DE3A /* next_score.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next_score.png; sourceTree = "<group>"; };
+		3656AE82153458D80053DE3A /* time_score.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = time_score.png; sourceTree = "<group>"; };
+		3656AE87153459310053DE3A /* next_score_activ-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "next_score_activ-hd.png"; sourceTree = "<group>"; };
+		3656AE88153459310053DE3A /* next_score-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "next_score-hd.png"; sourceTree = "<group>"; };
+		3656AE89153459310053DE3A /* time_score-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "time_score-hd.png"; sourceTree = "<group>"; };
 		8C053CCE13BD9FEA00D4520F /* BestJumps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BestJumps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C053CD213BD9FEA00D4520F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8C053CD413BD9FEA00D4520F /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -2897,6 +2910,9 @@
 		DD9CE2301445193F00365308 /* Buttons960 */ = {
 			isa = PBXGroup;
 			children = (
+				3656AE87153459310053DE3A /* next_score_activ-hd.png */,
+				3656AE88153459310053DE3A /* next_score-hd.png */,
+				3656AE89153459310053DE3A /* time_score-hd.png */,
 				DD9CE1341445126300365308 /* back_activ-hd.png */,
 				DD9CE1351445126300365308 /* back-hd.png */,
 				8CADB513140254D700627C28 /* menu_activ-hd.png */,
@@ -2924,6 +2940,9 @@
 		DD9CE2311445196100365308 /* Buttons480 */ = {
 			isa = PBXGroup;
 			children = (
+				3656AE80153458D70053DE3A /* next_score_activ.png */,
+				3656AE81153458D70053DE3A /* next_score.png */,
+				3656AE82153458D80053DE3A /* time_score.png */,
 				DD9CE2321445197E00365308 /* back_activ.png */,
 				DD9CE2331445197E00365308 /* back.png */,
 				8CADB5201402550000627C28 /* menu_activ.png */,
@@ -3245,6 +3264,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36036AFC153433DF00426D2E /* ARLRDBD_0.TTF in Resources */,
 				8C053CE513BD9FEA00D4520F /* Default.png in Resources */,
 				8C053CE713BD9FEA00D4520F /* fps_images.png in Resources */,
 				8C053CF613BD9FEA00D4520F /* iTunesArtwork in Resources */,
@@ -3813,6 +3833,12 @@
 				DD54843514C27D2E00615BA6 /* fon_spring-hd-.jpg in Resources */,
 				DD54843714C27D4800615BA6 /* fon_summer-hd.jpg in Resources */,
 				DD54843914C27D7300615BA6 /* fon_winter-hd.jpg in Resources */,
+				3656AE83153458D80053DE3A /* next_score_activ.png in Resources */,
+				3656AE84153458D80053DE3A /* next_score.png in Resources */,
+				3656AE85153458D80053DE3A /* time_score.png in Resources */,
+				3656AE8A153459310053DE3A /* next_score_activ-hd.png in Resources */,
+				3656AE8B153459310053DE3A /* next_score-hd.png in Resources */,
+				3656AE8C153459310053DE3A /* time_score-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4024,7 +4050,11 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = SpringBall/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				OTHER_LDFLAGS = "-lz";
+				OTHER_LDFLAGS = (
+					"-lz",
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = BestJumps;
 				USER_HEADER_SEARCH_PATHS = "\"SpringBall/libs/Chipmunk/include/chipmunk\"";
 				WRAPPER_EXTENSION = app;
@@ -4041,7 +4071,11 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = SpringBall/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				OTHER_LDFLAGS = "-lz";
+				OTHER_LDFLAGS = (
+					"-lz",
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = BestJumps;
 				USER_HEADER_SEARCH_PATHS = "\"SpringBall/libs/Chipmunk/include/chipmunk\"";
 				VALIDATE_PRODUCT = YES;
