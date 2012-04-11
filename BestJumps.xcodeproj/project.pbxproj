@@ -746,6 +746,9 @@
 		3656AE87153459310053DE3A /* next_score_activ-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "next_score_activ-hd.png"; sourceTree = "<group>"; };
 		3656AE88153459310053DE3A /* next_score-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "next_score-hd.png"; sourceTree = "<group>"; };
 		3656AE89153459310053DE3A /* time_score-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "time_score-hd.png"; sourceTree = "<group>"; };
+		3675D96F1535591800332CD2 /* AppSpecificValues.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppSpecificValues.h; sourceTree = "<group>"; };
+		3675D9701535591800332CD2 /* GameCenterManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameCenterManager.h; sourceTree = "<group>"; };
+		3675D9711535591800332CD2 /* GameCenterManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameCenterManager.m; sourceTree = "<group>"; };
 		8C053CCE13BD9FEA00D4520F /* BestJumps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BestJumps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C053CD213BD9FEA00D4520F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8C053CD413BD9FEA00D4520F /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1666,6 +1669,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3675D96D153558F300332CD2 /* GK */ = {
+			isa = PBXGroup;
+			children = (
+				3675D96F1535591800332CD2 /* AppSpecificValues.h */,
+				3675D9701535591800332CD2 /* GameCenterManager.h */,
+				3675D9711535591800332CD2 /* GameCenterManager.m */,
+			);
+			name = GK;
+			sourceTree = "<group>";
+		};
 		8C053CC313BD9FE900D4520F = {
 			isa = PBXGroup;
 			children = (
@@ -1703,6 +1716,7 @@
 		8C053CE213BD9FEA00D4520F /* SpringBall */ = {
 			isa = PBXGroup;
 			children = (
+				3675D96D153558F300332CD2 /* GK */,
 				DDF12D0C13DC82BE008230B1 /* New images */,
 				8C053EE013BDA48300D4520F /* plists */,
 				8C053EA113BDA23900D4520F /* Arrow.h */,
