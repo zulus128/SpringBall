@@ -10,6 +10,7 @@
 //#import "LevelScene1.h"
 #import "HelpScene1.h"
 #import "SeasonLayer.h"
+#import "Common.h"
 
 @implementation MenuLayer
 
@@ -86,6 +87,7 @@
 
 - (void) scoreBt {
     
+    [[Common instance] showLeaderboard];
 }
 
 - (void) soundBt :(id) sender  {
