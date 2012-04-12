@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		36036AFC153433DF00426D2E /* ARLRDBD_0.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 36267FEE153426940030A650 /* ARLRDBD_0.TTF */; };
+		3636524C15369AE2001EE518 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3636524B15369AE2001EE518 /* GameKit.framework */; };
 		3656AE83153458D80053DE3A /* next_score_activ.png in Resources */ = {isa = PBXBuildFile; fileRef = 3656AE80153458D70053DE3A /* next_score_activ.png */; };
 		3656AE84153458D80053DE3A /* next_score.png in Resources */ = {isa = PBXBuildFile; fileRef = 3656AE81153458D70053DE3A /* next_score.png */; };
 		3656AE85153458D80053DE3A /* time_score.png in Resources */ = {isa = PBXBuildFile; fileRef = 3656AE82153458D80053DE3A /* time_score.png */; };
@@ -740,6 +741,7 @@
 
 /* Begin PBXFileReference section */
 		36267FEE153426940030A650 /* ARLRDBD_0.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = ARLRDBD_0.TTF; sourceTree = "<group>"; };
+		3636524B15369AE2001EE518 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		3656AE80153458D70053DE3A /* next_score_activ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next_score_activ.png; sourceTree = "<group>"; };
 		3656AE81153458D70053DE3A /* next_score.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next_score.png; sourceTree = "<group>"; };
 		3656AE82153458D80053DE3A /* time_score.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = time_score.png; sourceTree = "<group>"; };
@@ -1655,6 +1657,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3636524C15369AE2001EE518 /* GameKit.framework in Frameworks */,
 				8C053CD313BD9FEA00D4520F /* QuartzCore.framework in Frameworks */,
 				8C053CD513BD9FEA00D4520F /* OpenGLES.framework in Frameworks */,
 				8C053CD713BD9FEA00D4520F /* OpenAL.framework in Frameworks */,
@@ -1682,6 +1685,7 @@
 		8C053CC313BD9FE900D4520F = {
 			isa = PBXGroup;
 			children = (
+				3636524B15369AE2001EE518 /* GameKit.framework */,
 				DD6D785313F5B1C1000FF725 /* Default@2x.png */,
 				DD6D785013F5AEBC000FF725 /* Default.png */,
 				8C053CE213BD9FEA00D4520F /* SpringBall */,
@@ -3256,6 +3260,9 @@
 /* Begin PBXProject section */
 		8C053CC513BD9FE900D4520F /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
 			buildConfigurationList = 8C053CC813BD9FE900D4520F /* Build configuration list for PBXProject "BestJumps" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -4062,13 +4069,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SpringBall/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = SpringBall/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				OTHER_LDFLAGS = (
-					"-lz",
-					"-ObjC",
-					"-all_load",
-				);
+				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = BestJumps;
 				USER_HEADER_SEARCH_PATHS = "\"SpringBall/libs/Chipmunk/include/chipmunk\"";
 				WRAPPER_EXTENSION = app;
@@ -4083,13 +4087,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SpringBall/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = SpringBall/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				OTHER_LDFLAGS = (
-					"-lz",
-					"-ObjC",
-					"-all_load",
-				);
+				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = BestJumps;
 				USER_HEADER_SEARCH_PATHS = "\"SpringBall/libs/Chipmunk/include/chipmunk\"";
 				VALIDATE_PRODUCT = YES;

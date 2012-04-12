@@ -21,6 +21,10 @@
 #import "Star.h"
 #import "Teleport.h"
 #import "Screw.h"
+#import "GameCenterManager.h"
+#import <GameKit/GameKit.h>
+
+@class RootViewController;
 
 #define MAX_WINDCNT 4
 #define MAX_TRANSITCNT 4
@@ -149,7 +153,7 @@ struct BPStruct {
 
 extern LevelStruct* ls;
 
-@interface Common : NSObject {
+@interface Common : NSObject <GameCenterManagerDelegate, GKLeaderboardViewControllerDelegate> {
 	
 	NSMutableDictionary* params;
 	CCLayer* lay;
@@ -190,6 +194,8 @@ extern LevelStruct* ls;
 	Star* star_array[MAX_STARCNT];
 	Teleport* teleport_array[MAX_TELEPORTCNT];
 	Screw* screw_array[MAX_SCREWCNT];
+    
+    
 
 }
 
@@ -274,5 +280,14 @@ extern LevelStruct* ls;
 - (void) setScrew: (Screw*) w at:(int) c;
 - (Screw*) getScrew: (int) c;
 - (void) deleteScrew: (int) c;
+
+- (void) showLeaderboard;
+- (void) submitScore;
+
+@property (nonatomic, retain) GameCenterManager *gameCenterManager;
+@property (nonatomic, retain) NSString* currentLeaderBoard;
+@property (assign, readwrite) int finalscore;
+@property (nonatomic, retain) RootViewController* rootViewController;
+
 
 @end
