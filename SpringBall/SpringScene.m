@@ -441,6 +441,17 @@ static void eachShape(void* ptr, void* unused) {
 		bgg.position = ccp(240, 18);
 		[self addChild:bgg z:6];		
 
+		demosprite = [CCSprite spriteWithFile:@"finger_1.jpg"];
+		demosprite.position = ccp(240, 160);
+        demosprite.visible = NO;
+		[self addChild:demosprite z:60];		
+
+        id animd = [CCAnimation animationWithName:@"demo" delay:0.18f];
+        for( int j = 1; j <= 9; j++)
+            [animd addFrameWithFilename:[NSString stringWithFormat:@"finger_%d.jpg", j]];
+        
+        anmd_move = [[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation: animd restoreOriginalFrame:NO]]retain];
+
         levelname = [CCSprite spriteWithFile:lvname];
 		levelname.position = ccp(420, 280);
         levelname.visible = NO;
@@ -772,6 +783,36 @@ static void eachShape(void* ptr, void* unused) {
 //    
 //}
 
+- (void) demo {
+    
+    NSLog(@"Demo");
+    bgp.visible = YES;
+    item1.visible = NO;
+    item2.visible = YES;
+//    item3.visible = YES;
+    item4.visible = YES;
+    item5.visible = YES;
+    levelname.visible = YES;
+    seasonname.visible = YES;
+    
+    NSDate* seconddate = [NSDate date];
+    double ff = [seconddate timeIntervalSinceDate:self.firstdate];
+    NSLog(@"Demo Pause: Time elapsed: %f seconds", ff);
+    timecnt += ff;
+    
+    item2.position = ccp(-45, 60);
+    [item2 runAction:[CCMoveTo actionWithDuration:0.2f position:ccp(85, 60)]];
+//    item3.position = ccp(-145, 125);
+//    [item3 runAction:[CCMoveTo actionWithDuration:0.3f position:ccp(84, 125)]];
+    item4.position = ccp(520, 59);
+    [item4 runAction:[CCMoveTo actionWithDuration:0.25f position:ccp(398, 59)]];
+    
+    demosprite.visible = YES;
+    [demosprite runAction:anmd_move];
+
+    
+}
+
 
 - (void) pause:(id) sender {
     
@@ -974,6 +1015,9 @@ static void eachShape(void* ptr, void* unused) {
     
     self.firstdate = [NSDate date];
     
+    demosprite.visible = NO;
+    [demosprite stopAllActions];
+
     [[CCDirector sharedDirector] resume];
  
 }
@@ -1012,6 +1056,9 @@ static void eachShape(void* ptr, void* unused) {
     
     [self clearsprites];
     
+    demosprite.visible = NO;
+    [demosprite stopAllActions];
+
     [[CCDirector sharedDirector] resume];
         NSLog(@"Menu");
     [[CCDirector sharedDirector] popScene/*replaceScene:[SpringScene scene]*/];
@@ -1261,6 +1308,11 @@ static void eachShape(void* ptr, void* unused) {
 	[Common instance].ballsdied = 0;
 
 //    NSLog(@"retains1 = %d", [ball[0] retainCount]);
+    
+    if (level == 1) {
+        
+        [self demo];
+    }
 
 	
 }
@@ -1994,6 +2046,8 @@ static void eachShape(void* ptr, void* unused) {
 
 	[ls release];
 
+    [anmd_move release];
+    
 //	[obj_hanged release];
 //	[obj_selected release];
 	

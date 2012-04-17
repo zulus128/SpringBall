@@ -42,26 +42,26 @@
             case SZ_SUMMER:
             default:
                 fon = @"fon_summer.jpg";
-                gazon_activ = @"gazon_summer_activ.png";
-                gazon = @"gazon_summer.png";
+                gazon = @"gazon_summer_activ.png";
+                gazon_activ = @"gazon_summer.png";
                 level_add = 0;
                 break;
             case SZ_AUTUMN:
                 fon = @"fon_autumn.jpg";
-                gazon_activ = @"gazon_autumn_activ.png";
-                gazon = @"gazon_autumn.png";
+                gazon = @"gazon_autumn_activ.png";
+                gazon_activ = @"gazon_autumn.png";
                 level_add = 15;
                 break;
             case SZ_WINTER:
                 fon = @"fon_winter.jpg";
-                gazon_activ = @"gazon_winter_activ.png";
-                gazon = @"gazon_winter.png";
+                gazon = @"gazon_winter_activ.png";
+                gazon_activ = @"gazon_winter.png";
                 level_add = 30;
                 break;
             case SZ_SPRING:
                 fon = @"fon_spring.jpg";
-                gazon_activ = @"gazon_spring_activ.png";
-                gazon = @"gazon_spring.png";
+                gazon = @"gazon_spring_activ.png";
+                gazon_activ = @"gazon_spring.png";
                 level_add = 45;
                 break;
         }
@@ -74,63 +74,63 @@
         ia1.visible = NO;
         [self addChild:ia1 z:1];
         
-        CCMenuItemImage* item1 = [CCMenuItemImage itemFromNormalImage:@"1.png" selectedImage:@"1_activ.png" disabledImage:@"1_lock.png" target:self selector:@selector(pCallback1:)];
+        CCMenuItemImage* item1 = [CCMenuItemImage itemFromNormalImage:@"1_activ.png" selectedImage:@"1.png" disabledImage:@"1_lock.png" target:self selector:@selector(pCallback1:)];
         item1.tag = 2000;
         item1.position = ccp(fx * 0 + ex, fy * 3 + ey);
         
-        CCMenuItemImage* item2 = [CCMenuItemImage itemFromNormalImage:@"2.png" selectedImage:@"2_activ.png" disabledImage:@"2_lock.png" target:self selector:@selector(pCallback1:)];
+        CCMenuItemImage* item2 = [CCMenuItemImage itemFromNormalImage:@"2_activ.png" selectedImage:@"2.png" disabledImage:@"2_lock.png" target:self selector:@selector(pCallback1:)];
         item2.tag = 2001;
         item2.position = ccp(fx * 1 + ex, fy * 3 + ey);
         
-        CCMenuItemImage* item3 = [CCMenuItemImage itemFromNormalImage:@"3.png" selectedImage:@"3_activ.png" disabledImage:@"3_lock.png" target:self selector:@selector(pCallback1:)];
+        CCMenuItemImage* item3 = [CCMenuItemImage itemFromNormalImage:@"3_activ.png" selectedImage:@"3.png" disabledImage:@"3_lock.png" target:self selector:@selector(pCallback1:)];
         item3.tag = 2002;
         item3.position = ccp(fx * 2 + ex, fy * 3 + ey);
         
-        CCMenuItemImage* item4 = [CCMenuItemImage itemFromNormalImage:@"4.png" selectedImage:@"4_activ.png" disabledImage:@"4_lock.png"target:self selector:@selector(pCallback1:)];
+        CCMenuItemImage* item4 = [CCMenuItemImage itemFromNormalImage:@"4_activ.png" selectedImage:@"4.png" disabledImage:@"4_lock.png"target:self selector:@selector(pCallback1:)];
         item4.tag = 2003;
         item4.position = ccp(fx * 3 + ex, fy * 3 + ey);
         
-        CCMenuItemImage* item5 = [CCMenuItemImage itemFromNormalImage:@"5.png" selectedImage:@"5_activ.png" disabledImage:@"5_lock.png" target:self selector:@selector(pCallback1:)];
+        CCMenuItemImage* item5 = [CCMenuItemImage itemFromNormalImage:@"5_activ.png" selectedImage:@"5.png" disabledImage:@"5_lock.png" target:self selector:@selector(pCallback1:)];
         item5.tag = 2004;
         item5.position = ccp(fx * 4 + ex, fy * 3 + ey);
         
-        CCMenuItemImage* item6 = [CCMenuItemImage itemFromNormalImage:@"6.png" selectedImage:@"6_activ.png" disabledImage:@"6_lock.png" target:self selector:@selector(pCallback1:)];
+        CCMenuItemImage* item6 = [CCMenuItemImage itemFromNormalImage:@"6_activ.png" selectedImage:@"6.png" disabledImage:@"6_lock.png" target:self selector:@selector(pCallback1:)];
         item6.tag = 2005;
         item6.position = ccp(fx * 0 + ex, fy * 2 + ey);
         
-        CCMenuItemImage* item7 = [CCMenuItemImage itemFromNormalImage:@"7.png" selectedImage:@"7_activ.png" disabledImage:@"7_lock.png" target:self selector:@selector(pCallback1:)];
+        CCMenuItemImage* item7 = [CCMenuItemImage itemFromNormalImage:@"7_activ.png" selectedImage:@"7.png" disabledImage:@"7_lock.png" target:self selector:@selector(pCallback1:)];
         item7.tag = 2006;
         item7.position = ccp(fx * 1 + ex, fy * 2 + ey);
         
-        CCMenuItemImage* item8 = [CCMenuItemImage itemFromNormalImage:@"8.png" selectedImage:@"8_activ.png" disabledImage:@"8_lock.png" target:self selector:@selector(pCallback1:)];
+        CCMenuItemImage* item8 = [CCMenuItemImage itemFromNormalImage:@"8_activ.png" selectedImage:@"8.png" disabledImage:@"8_lock.png" target:self selector:@selector(pCallback1:)];
         item8.tag = 2007;
         item8.position = ccp(fx * 2 + ex, fy * 2 + ey);
         
-        CCMenuItemImage* item9 = [CCMenuItemImage itemFromNormalImage:@"9.png" selectedImage:@"9_activ.png" disabledImage:@"9_lock.png" target:self selector:@selector(pCallback1:)];
+        CCMenuItemImage* item9 = [CCMenuItemImage itemFromNormalImage:@"9_activ.png" selectedImage:@"9.png" disabledImage:@"9_lock.png" target:self selector:@selector(pCallback1:)];
         item9.tag = 2008;
         item9.position = ccp(fx * 3 + ex, fy * 2 + ey);
         
-        CCMenuItemImage* item10 = [CCMenuItemImage itemFromNormalImage:@"10.png" selectedImage:@"10_activ.png" disabledImage:@"10_lock.png" target:self selector:@selector(pCallback1:)];
+        CCMenuItemImage* item10 = [CCMenuItemImage itemFromNormalImage:@"10_activ.png" selectedImage:@"10.png" disabledImage:@"10_lock.png" target:self selector:@selector(pCallback1:)];
         item10.tag = 2009;
         item10.position = ccp(fx * 4 + ex, fy * 2 + ey);
         
-        CCMenuItemImage* item11 = [CCMenuItemImage itemFromNormalImage:@"11.png" selectedImage:@"11_activ.png" disabledImage:@"11_lock.png" target:self selector:@selector(pCallback1:)];
+        CCMenuItemImage* item11 = [CCMenuItemImage itemFromNormalImage:@"11_activ.png" selectedImage:@"11.png" disabledImage:@"11_lock.png" target:self selector:@selector(pCallback1:)];
         item11.tag = 2010;
         item11.position = ccp(fx * 0 + ex, fy * 1 + ey);
         
-        CCMenuItemImage* item12 = [CCMenuItemImage itemFromNormalImage:@"12.png" selectedImage:@"12_activ.png" disabledImage:@"12_lock.png" target:self selector:@selector(pCallback1:)];
+        CCMenuItemImage* item12 = [CCMenuItemImage itemFromNormalImage:@"12_activ.png" selectedImage:@"12.png" disabledImage:@"12_lock.png" target:self selector:@selector(pCallback1:)];
         item12.tag = 2011;
         item12.position = ccp(fx * 1 + ex, fy * 1 + ey);
         
-        CCMenuItemImage* item13 = [CCMenuItemImage itemFromNormalImage:@"13.png" selectedImage:@"13_activ.png" disabledImage:@"13_lock.png" target:self selector:@selector(pCallback1:)];
+        CCMenuItemImage* item13 = [CCMenuItemImage itemFromNormalImage:@"13_activ.png" selectedImage:@"13.png" disabledImage:@"13_lock.png" target:self selector:@selector(pCallback1:)];
         item13.tag = 2012;
         item13.position = ccp(fx * 2 + ex, fy * 1 + ey);
         
-        CCMenuItemImage* item14 = [CCMenuItemImage itemFromNormalImage:@"14.png" selectedImage:@"14_activ.png" disabledImage:@"14_lock.png" target:self selector:@selector(pCallback1:)];
+        CCMenuItemImage* item14 = [CCMenuItemImage itemFromNormalImage:@"14_activ.png" selectedImage:@"14.png" disabledImage:@"14_lock.png" target:self selector:@selector(pCallback1:)];
         item14.tag = 2013;
         item14.position = ccp(fx * 3 + ex, fy * 1 + ey);
         
-        CCMenuItemImage* item15 = [CCMenuItemImage itemFromNormalImage:@"15.png" selectedImage:@"15_activ.png" disabledImage:@"15_lock.png" target:self selector:@selector(pCallback1:)];
+        CCMenuItemImage* item15 = [CCMenuItemImage itemFromNormalImage:@"15_activ.png" selectedImage:@"15.png" disabledImage:@"15_lock.png" target:self selector:@selector(pCallback1:)];
         item15.tag = 2014;
         item15.position = ccp(fx * 4 + ex, fy * 1 + ey);
         

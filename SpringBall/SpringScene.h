@@ -54,6 +54,8 @@ enum EditorObjects { EO_EASYWIND/*must be 1st*/, EO_STRONGWIND, EO_START, EO_FIN
     CCSprite* seasonname;
     CCSprite* failedlabel;
 
+    CCSprite* demosprite;
+
     CCLabelTTF *timelabel;
     CCLabelTTF *scorelabel;
     
@@ -65,6 +67,8 @@ enum EditorObjects { EO_EASYWIND/*must be 1st*/, EO_STRONGWIND, EO_START, EO_FIN
     int starscnt;
     int scnt;
     int dcnt;
+    
+    id anmd_move;
 
 }
 
