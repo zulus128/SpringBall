@@ -47,6 +47,9 @@
 #define SEASON_LEVELS_CNT 15
 #define ITEM_TAG 2000
 
+#define STARS_TAG 500
+#define DEATHS_TAG 600
+
 #define LEVEL_MUSIC @"level_music.mp3"
 #define BALL_GO_SOUND @"best_lumps_ball-jump.mp3"
 

@@ -47,10 +47,12 @@ enum EditorObjects { EO_EASYWIND/*must be 1st*/, EO_STRONGWIND, EO_START, EO_FIN
     CCMenuItemImage* item3;
     CCMenuItemImage* item4;
     CCMenuItemToggle* item5;
+    CCMenuItemImage* item6;
     //	CCMenu* menu;
 
     CCSprite* levelname;
     CCSprite* seasonname;
+    CCSprite* failedlabel;
 
     CCLabelTTF *timelabel;
     CCLabelTTF *scorelabel;
@@ -84,6 +86,7 @@ enum EditorObjects { EO_EASYWIND/*must be 1st*/, EO_STRONGWIND, EO_START, EO_FIN
 - (void) restart:(id) sender;
 - (void) menu:(id) sender;
 - (void) sound:(id) sender;
+- (void) next:(id) sender;
 -(void) deleteObjects;
 
 @property (nonatomic, retain) NSDate* firstdate;

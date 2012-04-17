@@ -462,6 +462,11 @@ static void eachShape(void* ptr, void* unused) {
         scorelabel.visible = NO;
 		[self addChild:scorelabel z:50];
 
+        failedlabel = [CCSprite spriteWithFile:@"failed.png"];
+		failedlabel.position = ccp(390, 225);
+        failedlabel.visible = NO;
+		[self addChild:failedlabel z:50];
+
 		direction_sprite = [CCSprite spriteWithFile:@"direction.png"];
 		[self addChild:direction_sprite z:5];
 		direction_sprite.visible = NO;
@@ -513,8 +518,10 @@ static void eachShape(void* ptr, void* unused) {
         CCMenuItemImage* itemSoundOff = [CCMenuItemImage itemFromNormalImage:@"s_sound_OFF.png" selectedImage:@"s_sound_OFF.png" target:nil selector:nil];
 
         item5 =  [CCMenuItemToggle itemWithTarget:self selector:@selector(sound:) items:itemSoundOn , itemSoundOff , nil];
-                
-        CCMenu* menu = [CCMenu menuWithItems:item1, item2, item3, item4, item5, nil];
+
+        item6 = [CCMenuItemImage itemFromNormalImage:@"next_score.png" selectedImage:@"next_score_activ.png" target:self selector:@selector(next:)];
+
+        CCMenu* menu = [CCMenu menuWithItems:item1, item2, item3, item4, item5, item6, nil];
 //        menu.visible = NO;
         menu.position = ccp(0,0);
         item1.position = ccp(445, 305);	
@@ -522,6 +529,7 @@ static void eachShape(void* ptr, void* unused) {
         item3.position = ccp(84, 125);
         item4.position = ccp(398, 59);	
         item5.position = ccp(30, 290);
+        item6.position = ccp(85, 200);	
 
         [self addChild: menu z:50];
 
@@ -532,6 +540,7 @@ static void eachShape(void* ptr, void* unused) {
         item3.visible = NO;
         item4.visible = NO;
         item5.visible = NO;
+        item6.visible = NO;
         
 		[self addChild:bgp z:48];	
 		// right
@@ -763,6 +772,7 @@ static void eachShape(void* ptr, void* unused) {
 //    
 //}
 
+
 - (void) pause:(id) sender {
     
     NSLog(@"Pause");
@@ -779,9 +789,25 @@ static void eachShape(void* ptr, void* unused) {
     double ff = [seconddate timeIntervalSinceDate:self.firstdate];
     NSLog(@"Pause: Time elapsed: %f seconds", ff);
     timecnt += ff;
+
+    item2.position = ccp(-45, 200);
+    [item2 runAction:[CCSequence actions:[CCMoveTo actionWithDuration:0.2f position:ccp(85, 200)],
+                                            [CCDelayTime actionWithDuration:0.4f],
+                                            [CCCallFuncN actionWithTarget:self selector:@selector(pause1)],
+                      nil]];
+    item3.position = ccp(-145, 125);
+    [item3 runAction:[CCMoveTo actionWithDuration:0.3f position:ccp(84, 125)]];
+    item4.position = ccp(520, 59);
+    [item4 runAction:[CCMoveTo actionWithDuration:0.25f position:ccp(398, 59)]];
+
+    
+        
+}
+
+- (void) pause1 {
     
     [[CCDirector sharedDirector] pause];
-    
+
 }
 
 - (void) complete {
@@ -789,7 +815,6 @@ static void eachShape(void* ptr, void* unused) {
     NSLog(@"Complete");
     bgp.visible = YES;
     item1.visible = NO;
-    item2.visible = YES;
     item3.visible = YES;
     item4.visible = YES;
     item5.visible = YES;
@@ -802,10 +827,13 @@ static void eachShape(void* ptr, void* unused) {
     timecnt += ff;
 
     timelabel.visible = YES;
-    scorelabel.visible = YES;
     
+    if([Common instance].ballsonfinish > 0)
+        scorelabel.visible = YES;
+    else 
+        failedlabel.visible = YES;
 
-    ctimec = 400;//timecnt;
+    ctimec = timecnt;
     [Common instance].stars = 5;
     cscorec = 100000;//20000 * [Common instance].ballsonfinish;
 
@@ -818,15 +846,45 @@ static void eachShape(void* ptr, void* unused) {
     starscnt = [Common instance].stars;
     scnt = 0;
     dcnt = 0;
-//    [self schedule:@selector(sstep:) interval:0.01f];
-    [self schedule:@selector(sstep1:) interval:0.3f];
+    
+    if([Common instance].ballsonfinish > 0) {
+        
+        item6.visible = YES;
+        item6.position = ccp(-45, 200);
+        [item6 runAction:[CCMoveTo actionWithDuration:0.2f position:ccp(70, 200)]];
+        [self schedule:@selector(sstep1:) interval:0.1f];
 
-//    for (int i = timecnt; i > 0; i--) {
-//        
-//    }
+    }
+
+    int a = ctimec/60;
+    int b = ctimec - a*60;
+    NSString* s = [NSString stringWithFormat:@"%02d:%02d", a, b];
+    [timelabel setString:s];
+
+    item3.position = ccp(-145, 125);
+    [item3 runAction:[CCMoveTo actionWithDuration:0.3f position:ccp(84, 125)]];
+    item4.position = ccp(520, 59);
+    [item4 runAction:[CCMoveTo actionWithDuration:0.25f position:ccp(398, 59)]];
+
     
-//    [[CCDirector sharedDirector] pause];
+}
+
+- (void) clearsprites {
+
+    for (int i = 0; i < scnt; i++) {
+        
+        [self removeChildByTag:(STARS_TAG + i) cleanup:YES];
+    }
+
+    for (int j = 0; j < dcnt; j++) {
+        
+        [self removeChildByTag:(DEATHS_TAG + j) cleanup:YES];
+    }
     
+    timelabel.visible = NO;
+    scorelabel.visible = NO;
+    failedlabel.visible = NO;
+
 }
 
 - (void) sstep1: (ccTime) dt {
@@ -834,7 +892,7 @@ static void eachShape(void* ptr, void* unused) {
     if([Common instance].stars <= 0) {
 
         [self unschedule: @selector(sstep1:)];
-        [self schedule:@selector(sstep:) interval:0.01f];
+        [self schedule:@selector(sstep:) interval:0.001f];
         return;
     }
     
@@ -846,7 +904,7 @@ static void eachShape(void* ptr, void* unused) {
     int x = 450;
     CCSprite* sprite = [CCSprite spriteWithFile:@"star.png"];
     sprite.position = ccp(x - scnt * 50, 185);
-    sprite.tag = (500 + scnt);
+    sprite.tag = (STARS_TAG + scnt);
     [self addChild:sprite z:50];	
     scnt++;
 }
@@ -856,6 +914,8 @@ static void eachShape(void* ptr, void* unused) {
     if([Common instance].ballsdied <= 0) {
         
         [self unschedule: @selector(sstep2:)];
+        [Common instance].finalscore = cscorec;
+        [[Common instance] submitScore];
         return;
     }
     
@@ -867,7 +927,7 @@ static void eachShape(void* ptr, void* unused) {
     int x = 450;
     CCSprite* sprite = [CCSprite spriteWithFile:@"ball_blue_smert_5.png"];
     sprite.position = ccp(x - dcnt * 50, 115);
-    sprite.tag = (600 + dcnt);
+    sprite.tag = (DEATHS_TAG + dcnt);
     [self addChild:sprite z:50];	
     dcnt++;
 
@@ -893,7 +953,7 @@ static void eachShape(void* ptr, void* unused) {
     if (ctimec <= 0) {
     
         [self unschedule:@selector(sstep:)];
-        [self schedule:@selector(sstep2:) interval:0.3f];
+        [self schedule:@selector(sstep2:) interval:0.1f];
 
     }
 
@@ -908,6 +968,7 @@ static void eachShape(void* ptr, void* unused) {
     item3.visible = NO;
     item4.visible = NO;
     item5.visible = NO;
+    item6.visible = NO;
     levelname.visible = NO;
     seasonname.visible = NO;
     
@@ -926,10 +987,13 @@ static void eachShape(void* ptr, void* unused) {
     item3.visible = NO;
     item4.visible = NO;
     item5.visible = NO;
+    item6.visible = NO;
     levelname.visible = NO;
     seasonname.visible = NO;
 
     [self unschedule: @selector(step:)];
+
+    [self clearsprites];
 
     [[CCDirector sharedDirector] resume];
     [self startLevel:level];
@@ -944,6 +1008,9 @@ static void eachShape(void* ptr, void* unused) {
     item3.visible = NO;
     item4.visible = NO;
     item5.visible = NO;
+    item6.visible = NO;
+    
+    [self clearsprites];
     
     [[CCDirector sharedDirector] resume];
         NSLog(@"Menu");
@@ -960,6 +1027,30 @@ static void eachShape(void* ptr, void* unused) {
 	[self startLevel:(level + 1)];
 }
 
+- (void) next:(id) sender {
+
+    NSLog(@"Next");
+    bgp.visible = NO;
+    item1.visible = YES;
+    item2.visible = NO;
+    item3.visible = NO;
+    item4.visible = NO;
+    item5.visible = NO;
+    item6.visible = NO;
+    levelname.visible = NO;
+    seasonname.visible = NO;
+
+    [Common instance].ballsonfinish = -5;
+    [Common instance].ballsdied = -5;
+    
+        [self clearsprites];
+    
+//    [[CCDirector sharedDirector] resume];
+    [self startLevel:(level + 1)];
+    [self schedule: @selector(step:)];// interval:0.5];
+
+}
+
 -(void) startLevel: (int) l {
 	
     NSLog(@"Started level %d", l);
@@ -968,12 +1059,21 @@ static void eachShape(void* ptr, void* unused) {
     self.firstdate = [NSDate date];
     timecnt = 0;
     
+    
 	level = l;
 	selected = -1;	
 	[Common instance].editor = NO;
 	
-    [Common instance].ballsonfinish = 0;
-	[Common instance].ballsdied = 0;
+    int cc = ((level - 1) % SEASON_LEVELS_CNT) + 1;
+//    NSLog(@"level_i = %i", cc);
+    NSString* lvname = [NSString stringWithFormat:@"level_%i.png", cc];
+    [levelname initWithFile:lvname];
+    levelname.position = ccp(420, 280);
+    levelname.visible = NO;
+
+
+    [Common instance].ballsonfinish = -5;
+	[Common instance].ballsdied = -5;
 	[Common instance].stars = 0;
     
 	[[Common instance] resetGravityAngle];
@@ -1015,7 +1115,7 @@ static void eachShape(void* ptr, void* unused) {
 	
     for(int i = 0; i < ls->ballsnum; i++) {
            
-        NSLog(@"Ball %d releasing", i);
+//        NSLog(@"Ball %d releasing", i);
 		[ball[i] release];
     }
 		
@@ -1157,8 +1257,10 @@ static void eachShape(void* ptr, void* unused) {
 		}
 	}
 	ls->ballsnum = h;
-    
-    NSLog(@"retains1 = %d", [ball[0] retainCount]);
+    [Common instance].ballsonfinish = 0;
+	[Common instance].ballsdied = 0;
+
+//    NSLog(@"retains1 = %d", [ball[0] retainCount]);
 
 	
 }
@@ -1961,6 +2063,7 @@ static void eachShape(void* ptr, void* unused) {
 		shadow_count = 0;
 	}
 	
+//    NSLog(@"ls->ballsnum = %d", ls->ballsnum);
 	if(([Common instance].ballsonfinish + [Common instance].ballsdied) >= ls->ballsnum)
 		[self complete];
 	
