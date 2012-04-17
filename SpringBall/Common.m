@@ -47,7 +47,7 @@ LevelStruct* ls = nil;
 @synthesize ballsonfinish;
 @synthesize ballsdied;
 @synthesize stars;
-
+@synthesize sounds;
 @synthesize currentLeaderBoard;
 @synthesize gameCenterManager;
 @synthesize finalscore;

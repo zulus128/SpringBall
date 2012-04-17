@@ -875,7 +875,7 @@ static void eachShape(void* ptr, void* unused) {
         failedlabel.visible = YES;
 
     ctimec = timecnt;
-    [Common instance].stars = 5;
+//    [Common instance].stars = 5;
     cscorec = 100000;//20000 * [Common instance].ballsonfinish;
 
     [self unschedule: @selector(step:)];
@@ -943,7 +943,7 @@ static void eachShape(void* ptr, void* unused) {
     [Common instance].stars--;
     
     int x = 450;
-    CCSprite* sprite = [CCSprite spriteWithFile:@"star.png"];
+    CCSprite* sprite = [CCSprite spriteWithFile:@"1star.png"];
     sprite.position = ccp(x - scnt * 50, 185);
     sprite.tag = (STARS_TAG + scnt);
     [self addChild:sprite z:50];	
@@ -961,6 +961,8 @@ static void eachShape(void* ptr, void* unused) {
     }
     
     cscorec -= 10000;
+    if (cscorec < 0)
+        cscorec = 0;
     [scorelabel setString:[NSString stringWithFormat:@"%d", cscorec]];
     
     [Common instance].ballsdied--;
@@ -1068,6 +1070,19 @@ static void eachShape(void* ptr, void* unused) {
 - (void) sound:(id) sender {
  
         NSLog(@"sound - %d", [sender selectedIndex]);
+    
+    [Common instance].sounds = [sender selectedIndex];
+    
+    if([sender selectedIndex] == 0) {
+
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:LEVEL_MUSIC loop:YES];
+    }
+    else {
+
+        [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+
+    }
+
 }
 
 - (void) nextlevelCallback:(id) sender {
@@ -2151,7 +2166,7 @@ static void eachShape(void* ptr, void* unused) {
 	}
 	
 	cpFloat d2 = o * o + a * a;
-	cpFloat sc = d2 / 20000;
+	cpFloat sc = d2 / 15000;
 	if(sc <= 1) {
 		direction_sprite.position = ball[selected].sprite.position;
 		direction_sprite.rotation = at + 90;

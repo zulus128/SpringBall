@@ -33,10 +33,14 @@
 		
 		
         CGSize size = [[CCDirector sharedDirector] winSize];
-        ey = size.height / 8;
-        fy = size.height / 4;
+//        ey = size.height / 8;
+//        fy = size.height / 4;
+//        ex = size.width / 10;
+//        fx = size.width / 5;
+        ey = size.height / 5.5;
+        fy = size.height / 4.5;
         ex = size.width / 10;
-        fx = size.width / 5;
+        fx = size.width / 5.5;
         
         switch ([Common instance].season) {
             case SZ_SUMMER:

@@ -221,6 +221,7 @@ extern LevelStruct* ls;
 @property (readwrite) int stars;
 @property (readwrite) bool gravityexists;
 @property (readwrite) int setlevel;
+@property (readwrite) bool sounds;
 
 @property (readwrite) int season;
 

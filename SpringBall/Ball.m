@@ -302,7 +302,8 @@
 		shadow[i].opacity = 255;
 	}
     
-    [[SimpleAudioEngine sharedEngine] playEffect:BALL_GO_SOUND];
+    if([Common instance].sounds == 0)
+        [[SimpleAudioEngine sharedEngine] playEffect:BALL_GO_SOUND];
 }
 
 - (void) stop {
