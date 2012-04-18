@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		36036AFC153433DF00426D2E /* ARLRDBD_0.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 36267FEE153426940030A650 /* ARLRDBD_0.TTF */; };
 		360FE1FF1536E5CA00A1B4B5 /* GameCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 360FE1FE1536E5CA00A1B4B5 /* GameCenterManager.m */; };
+		360FE510153E735B005D07D9 /* icon_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 360FE50F153E735B005D07D9 /* icon_57.png */; };
+		360FE513153E7363005D07D9 /* icon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 360FE512153E7363005D07D9 /* icon_114.png */; };
 		3636524C15369AE2001EE518 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3636524B15369AE2001EE518 /* GameKit.framework */; };
 		3656AE83153458D80053DE3A /* next_score_activ.png in Resources */ = {isa = PBXBuildFile; fileRef = 3656AE80153458D70053DE3A /* next_score_activ.png */; };
 		3656AE84153458D80053DE3A /* next_score.png in Resources */ = {isa = PBXBuildFile; fileRef = 3656AE81153458D70053DE3A /* next_score.png */; };
@@ -764,6 +766,8 @@
 		360FE1FC1536E5CA00A1B4B5 /* AppSpecificValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSpecificValues.h; sourceTree = "<group>"; };
 		360FE1FD1536E5CA00A1B4B5 /* GameCenterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterManager.h; sourceTree = "<group>"; };
 		360FE1FE1536E5CA00A1B4B5 /* GameCenterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenterManager.m; sourceTree = "<group>"; };
+		360FE50F153E735B005D07D9 /* icon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_57.png; sourceTree = "<group>"; };
+		360FE512153E7363005D07D9 /* icon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_114.png; sourceTree = "<group>"; };
 		36267FEE153426940030A650 /* ARLRDBD_0.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = ARLRDBD_0.TTF; sourceTree = "<group>"; };
 		3636524B15369AE2001EE518 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		3656AE80153458D70053DE3A /* next_score_activ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next_score_activ.png; sourceTree = "<group>"; };
@@ -1726,6 +1730,8 @@
 		8C053CC313BD9FE900D4520F = {
 			isa = PBXGroup;
 			children = (
+				360FE512153E7363005D07D9 /* icon_114.png */,
+				360FE50F153E735B005D07D9 /* icon_57.png */,
 				3636524B15369AE2001EE518 /* GameKit.framework */,
 				DD6D785313F5B1C1000FF725 /* Default@2x.png */,
 				DD6D785013F5AEBC000FF725 /* Default.png */,
@@ -3941,6 +3947,8 @@
 				36CC76CB153D6B6A0030AAAB /* finger_7.jpg in Resources */,
 				36CC76CC153D6B6A0030AAAB /* finger_8.jpg in Resources */,
 				36CC76CD153D6B6A0030AAAB /* finger_9.jpg in Resources */,
+				360FE510153E735B005D07D9 /* icon_57.png in Resources */,
+				360FE513153E7363005D07D9 /* icon_114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
