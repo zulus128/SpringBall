@@ -490,14 +490,17 @@ static void eachShape(void* ptr, void* unused) {
 
 		editor_sprite = [CCSprite spriteWithFile:@"editor_no.png"];
 		editor_sprite.position = ccp(20,300);
+        editor_sprite.visible = NO;             //v123
 		[self addChild:editor_sprite z:9];
 
 		editor_sprite1 = [CCSprite spriteWithFile:@"chg.png"];
 		editor_sprite1.position = ccp(460,300);
+        editor_sprite1.visible = NO;             //v123
 		[self addChild:editor_sprite1 z:9];
 
 		editor_sprite2 = [CCSprite spriteWithFile:@"exit.png"];
 		editor_sprite2.position = ccp(20,20);
+        editor_sprite2.visible = NO;             //v123
 		[self addChild:editor_sprite2 z:9];
 		
 		CGSize wins = [[CCDirector sharedDirector] winSize];
@@ -1366,7 +1369,7 @@ static void eachShape(void* ptr, void* unused) {
 	
 	convLocationMoved = convLocation;
 	
-	if((convLocation.x < 30) && (convLocation.y > 290)) {
+	if(0 && (convLocation.x < 30) && (convLocation.y > 290)) {//v123
 		[Common instance].editor = ![Common instance].editor;
 		if([Common instance].editor)
 			[editor_sprite initWithFile:@"editor_yes.png"];
@@ -1377,12 +1380,12 @@ static void eachShape(void* ptr, void* unused) {
 		return;
 	}
 
-	if((convLocation.x < 30) && (convLocation.y < 30) && [Common instance].editor) {
+	if(0 && (convLocation.x < 30) && (convLocation.y < 30) && [Common instance].editor) {//v123
 		
 		[[CCDirector sharedDirector] popScene/*replaceScene:[SpringScene scene]*/];
 	}
 
-	if((convLocation.x > 450) && (convLocation.y > 290) && [Common instance].editor) {
+	if(0 && (convLocation.x > 450) && (convLocation.y > 290) && [Common instance].editor) {//v123
 		//NSLog(@"x = %f, y = %f", obj_hanged.sprite.position.x, obj_hanged.sprite.position.y);
 		
 		if(obj_hanged/* && (obj_hanged.sprite.position.x == 240) && (obj_hanged.sprite.position.y == 160)*/) {

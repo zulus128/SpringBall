@@ -157,7 +157,50 @@
 //        [item15 setIsEnabled:NO];
         
         //        NSLog(@"--- %f, %f, %f", (double)(0%5), (double)(1%5), (double)(7%5));
-        
+        switch ([Common instance].season) {
+            case SZ_SUMMER:
+            default:
+//                fon = @"fon_summer.jpg";
+//                gazon = @"gazon_summer_activ.png";
+//                gazon_activ = @"gazon_summer.png";
+//                level_add = 0;
+                [item1 setIsEnabled:YES];
+                [item2 setIsEnabled:YES];
+                [item3 setIsEnabled:YES];
+                [item4 setIsEnabled:YES];
+                [item5 setIsEnabled:YES];
+                [item6 setIsEnabled:YES];
+                [item7 setIsEnabled:YES];
+                [item8 setIsEnabled:YES];
+                [item9 setIsEnabled:YES];
+                [item10 setIsEnabled:YES];
+                [item11 setIsEnabled:YES];
+                [item12 setIsEnabled:YES];
+                [item13 setIsEnabled:YES];
+                [item14 setIsEnabled:YES];
+                [item15 setIsEnabled:YES];
+                break;
+            case SZ_AUTUMN:
+            case SZ_WINTER:
+            case SZ_SPRING:             //v123
+                [item1 setIsEnabled:NO];
+                [item2 setIsEnabled:NO];
+                [item3 setIsEnabled:NO];
+                [item4 setIsEnabled:NO];
+                [item5 setIsEnabled:NO];
+                [item6 setIsEnabled:NO];
+                [item7 setIsEnabled:NO];
+                [item8 setIsEnabled:NO];
+                [item9 setIsEnabled:NO];
+                [item10 setIsEnabled:NO];
+                [item11 setIsEnabled:NO];
+                [item12 setIsEnabled:NO];
+                [item13 setIsEnabled:NO];
+                [item14 setIsEnabled:NO];
+                [item15 setIsEnabled:NO];
+                break;
+        }
+
         for (int i = 0; i< SEASON_LEVELS_CNT; i++) {
             
             gazons[i] = [CCSprite spriteWithFile:gazon];
