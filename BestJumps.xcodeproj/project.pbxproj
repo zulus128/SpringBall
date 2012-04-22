@@ -1469,6 +1469,7 @@
 		DD6D785013F5AEBC000FF725 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		DD6D785313F5B1C1000FF725 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		DD6D785513F5B33F000FF725 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
+		DD73A4CA1543A73800805A54 /* BestJumps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BestJumps.entitlements; sourceTree = "<group>"; };
 		DD9CE1071445116100365308 /* button_autumn_activ-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_autumn_activ-hd.png"; sourceTree = "<group>"; };
 		DD9CE1081445116100365308 /* button_autumn-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_autumn-hd.png"; sourceTree = "<group>"; };
 		DD9CE1091445116100365308 /* button_spring_activ-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_spring_activ-hd.png"; sourceTree = "<group>"; };
@@ -1730,6 +1731,7 @@
 		8C053CC313BD9FE900D4520F = {
 			isa = PBXGroup;
 			children = (
+				DD73A4CA1543A73800805A54 /* BestJumps.entitlements */,
 				360FE512153E7363005D07D9 /* icon_114.png */,
 				360FE50F153E735B005D07D9 /* icon_57.png */,
 				3636524B15369AE2001EE518 /* GameKit.framework */,
@@ -4158,6 +4160,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_ENTITLEMENTS = BestJumps.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: VADIM KASSIN (744XFE3JS8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: VADIM KASSIN (744XFE3JS8)";
 				COPY_PHASE_STRIP = NO;
@@ -4181,6 +4184,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_ENTITLEMENTS = BestJumps.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: VADIM KASSIN (744XFE3JS8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: VADIM KASSIN (744XFE3JS8)";
 				COPY_PHASE_STRIP = YES;
@@ -4200,6 +4204,49 @@
 			};
 			name = Release;
 		};
+		DD73A4CC1543A7B900805A54 /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: VADIM KASSIN";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: VADIM KASSIN";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "CAAF4A3C-875F-4066-8DF0-CD11CB1B1851";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CAAF4A3C-875F-4066-8DF0-CD11CB1B1851";
+				SDKROOT = iphoneos;
+			};
+			name = "Ad Hoc";
+		};
+		DD73A4CD1543A7B900805A54 /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_ENTITLEMENTS = BestJumps.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: VADIM KASSIN";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: VADIM KASSIN";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SpringBall/Prefix.pch;
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = SpringBall/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = "-lz";
+				PRODUCT_NAME = BestJumps;
+				PROVISIONING_PROFILE = "CAAF4A3C-875F-4066-8DF0-CD11CB1B1851";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CAAF4A3C-875F-4066-8DF0-CD11CB1B1851";
+				USER_HEADER_SEARCH_PATHS = "\"SpringBall/libs/Chipmunk/include/chipmunk\"";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = "Ad Hoc";
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -4208,6 +4255,7 @@
 			buildConfigurations = (
 				8C053E9C13BD9FED00D4520F /* Debug */,
 				8C053E9D13BD9FED00D4520F /* Release */,
+				DD73A4CC1543A7B900805A54 /* Ad Hoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -4217,6 +4265,7 @@
 			buildConfigurations = (
 				8C053E9F13BD9FED00D4520F /* Debug */,
 				8C053EA013BD9FED00D4520F /* Release */,
+				DD73A4CD1543A7B900805A54 /* Ad Hoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
